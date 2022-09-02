@@ -39,32 +39,37 @@ class _HomePageState extends State<HomePage> {
               physics: const BouncingScrollPhysics(),
               itemCount: posts.length,
               itemBuilder: (context, i) {
-                return Card(
-                  color: posts[i]['completed'] == true
-                      ? Colors.lightBlueAccent
-                      : Colors.white,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  elevation: 5,
-                  shadowColor: Colors.blue,
-                  child: CheckboxListTile(
-                    contentPadding: EdgeInsets.all(10),
-                    value: posts[i]['completed'] == true,
-                    onChanged: (val) {
-                      setState(() {
-                        posts[i]['completed'] = val;
-                      });
-                    },
-                    title: Text(
-                      '${posts[i]['title']}',
-                      style: const TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                      ),
+                return Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 5, vertical: 2),
+                  child: Card(
+                    // margin: EdgeInsets.only(top: 15),
+                    color: posts[i]['completed'] == true
+                        ? Colors.lightBlueAccent
+                        : Colors.white,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
                     ),
+                    elevation: 5,
+                    shadowColor: Colors.blue,
+                    child: CheckboxListTile(
+                      contentPadding: EdgeInsets.all(10),
+                      value: posts[i]['completed'] == true,
+                      onChanged: (val) {
+                        setState(() {
+                          posts[i]['completed'] = val;
+                        });
+                      },
+                      title: Text(
+                        '${posts[i]['title']}',
+                        style: const TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
 
-                    //  Text('${posts[i]['completed']}'),
+                      //  Text('${posts[i]['completed']}'),
+                    ),
                   ),
                 );
               },
